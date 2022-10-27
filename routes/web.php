@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductConroller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('about', 'App\Http\Controllers\HomeController@about')->name('about page');
 Route::get('products', [ProductConroller::class, 'index'])->name('productPage');
 Route::get('products/{id}', [ProductConroller::class, 'show'])->name('productShow');
+
+Route::get('admin', 'App\Http\Controllers\Admin\AdminController@index')->name('adminHomePage');

@@ -58,33 +58,33 @@ class Product extends Model
         $this->attributes['image'] = $image;
     }
 
-     public function getPrice()
-     {
-         return $this->attributes['price'];
-     }
+    public function getPrice()
+    {
+        return $this->attributes['price'];
+    }
 
-     public function setPrice($price)
-     {
-         $this->attributes['price'] = $price;
-     }
+    public function setPrice($price)
+    {
+        $this->attributes['price'] = $price;
+    }
 
-     public function getCreatedAt()
-     {
-         return $this->attributes['created_at'];
-     }
+    public function getCreatedAt()
+    {
+        return $this->attributes['created_at'];
+    }
 
-     public function setCreatedAt($createdAt)
-     {
-         $this->attributes['created_at'] = $createdAt;
-     }
+    public function setCreatedAt($createdAt)
+    {
+        $this->attributes['created_at'] = $createdAt;
+    }
 
-     public function getUpdatedAt()
-     {
-         return $this->attributes['updated_at'];
-     }
+    public function getUpdatedAt()
+    {
+        return $this->attributes['updated_at'];
+    }
 
-     public function setUpdatedAt($updatedAt)
-     {
-         $this->attributes['updated_at'] = $updatedAt;
-     }
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->attributes['updated_at'] = $updatedAt;
+    }
 }

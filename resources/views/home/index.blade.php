@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-3 col-lg-2"></div>
         </div>
-        <div class="row">
+        <div class="row g-0">
             <div class="col-md-6 col-lg-4 mb-2 mx-auto">
                 <img src="{{ asset('/img/soupe_viandes.jpg') }}" width="200px" height="300px" class="img-fluid rounded"
                     alt="plantain légumes">
