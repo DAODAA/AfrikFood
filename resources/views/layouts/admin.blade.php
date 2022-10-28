@@ -21,7 +21,7 @@
             <hr />
             <ul class="nav flex-column">
                 <li><a href="{{ route('adminHomePage') }}" class="nav-link text-white">-Admin-Home</a></li>
-                <li><a href="#" class="nav-link text-white">-Admin-Products</a></li>
+                <li><a href="{{ route('adminProductPage') }}" class="nav-link text-white">-Admin-Products</a></li>
                 <li><a href="{{ route('home') }}" class="mt-2 btn bg-primary text-white">Go back to the home
                         page</a></li>
             </ul>
