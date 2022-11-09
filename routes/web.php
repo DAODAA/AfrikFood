@@ -22,4 +22,6 @@ Route::get('products', [ProductConroller::class, 'index'])->name('productPage');
 Route::get('products/{id}', [ProductConroller::class, 'show'])->name('productShow');
 
 Route::get('admin', 'App\Http\Controllers\Admin\AdminController@index')->name('adminHomePage');
-Route::get('admin/products','App\Http\Controllers\Admin\AdminProductController@index')->name('adminProductPage');
+Route::get('admin/products', 'App\Http\Controllers\Admin\AdminProductController@index')->name('adminProductPage');
+
+Route::post('/admin/products/store', 'App\Http\Controllers\Admin\AdminProductController@store')->name('adminProductStore');
