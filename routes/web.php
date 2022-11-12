@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('about', 'App\Http\Controllers\HomeController@about')->name('about page');
+Route::get('about', 'App\Http\Controllers\HomeController@about')->name('aboutPage');
 Route::get('products', [ProductConroller::class, 'index'])->name('productPage');
 Route::get('products/{id}', [ProductConroller::class, 'show'])->name('productShow');
 
@@ -32,3 +32,5 @@ Route::delete('/admin/products/{id}/delete', 'App\Http\Controllers\Admin\AdminPr
 
 Route::get('admin/products/{id}/edit', 'App\Http\Controllers\Admin\AdminProductController@edit')->name('adminProductEdit');
 Route::put('admin/products/{id}/update', 'App\Http\Controllers\Admin\AdminProductController@update')->name('adminProductUpdate');
+
+Auth::routes();
