@@ -18,3 +18,7 @@ nav {
     height: 18vw;
     object-fit: cover;
 }
+
+#logout {
+    cursor: pointer;
+}
