@@ -21,16 +21,18 @@ Route::get('about', 'App\Http\Controllers\HomeController@about')->name('aboutPag
 Route::get('products', [ProductConroller::class, 'index'])->name('productPage');
 Route::get('products/{id}', [ProductConroller::class, 'show'])->name('productShow');
 
-Route::get('admin', 'App\Http\Controllers\Admin\AdminController@index')->name('adminHomePage');
-Route::get('admin/products', 'App\Http\Controllers\Admin\AdminProductController@index')->name('adminProductPage');
+Route::middleware('admin')->group(function () {
+    Route::get('admin', 'App\Http\Controllers\Admin\AdminController@index')->name('adminHomePage');
+    Route::get('admin/products', 'App\Http\Controllers\Admin\AdminProductController@index')->name('adminProductPage');
 
-Route::post('/admin/products/store', 'App\Http\Controllers\Admin\AdminProductController@store')->name('adminProductStore');
+    Route::post('/admin/products/store', 'App\Http\Controllers\Admin\AdminProductController@store')->name('adminProductStore');
 
 
-Route::delete('/admin/products/{id}/delete', 'App\Http\Controllers\Admin\AdminProductController@delete')
-->name('adminProductDelete');
+    Route::delete('/admin/products/{id}/delete', 'App\Http\Controllers\Admin\AdminProductController@delete')
+    ->name('adminProductDelete');
 
-Route::get('admin/products/{id}/edit', 'App\Http\Controllers\Admin\AdminProductController@edit')->name('adminProductEdit');
-Route::put('admin/products/{id}/update', 'App\Http\Controllers\Admin\AdminProductController@update')->name('adminProductUpdate');
+    Route::get('admin/products/{id}/edit', 'App\Http\Controllers\Admin\AdminProductController@edit')->name('adminProductEdit');
+    Route::put('admin/products/{id}/update', 'App\Http\Controllers\Admin\AdminProductController@update')->name('adminProductUpdate');
+});
 
 Auth::routes();
