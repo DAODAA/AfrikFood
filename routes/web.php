@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductConroller;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +35,8 @@ Route::middleware('admin')->group(function () {
     Route::get('admin/products/{id}/edit', 'App\Http\Controllers\Admin\AdminProductController@edit')->name('adminProductEdit');
     Route::put('admin/products/{id}/update', 'App\Http\Controllers\Admin\AdminProductController@update')->name('adminProductUpdate');
 });
-
 Auth::routes();
+
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cartHome');
+Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name('cartDelete');
+Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cartAdd');

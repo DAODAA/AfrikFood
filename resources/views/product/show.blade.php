@@ -14,7 +14,23 @@
                         {{ $viewData['product']->getName() }}({{ $viewData['product']->getPrice() }} FCFA)
                     </h5>
                     <p class="card-text">{{ $viewData['product']->getDescription() }}</p>
-                    <p class="card-text btn bg-primary text-white"><small>Add to Cart</small></p>
+                    <p class="card-text">
+                    <form method="POST" action="{{ route('cartAdd', ['id' => $viewData['product']->getId()]) }}">
+                        <div class="row">
+                            @csrf
+                            <div class="col-auto">
+                                <div class="input-group col-auto">
+                                    <div class="input-group-text">Quantity</div>
+                                    <input type="number" min="1" max="10" name="quantity" value="1"
+                                        class="form-control quantity-input ml-1">
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn bg-primary text-white" type="submit">Add to Cart</button>
+                            </div>
+                        </div>
+                    </form>
+                    </p>
                 </div>
             </div>
         </div>
