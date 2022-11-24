@@ -31,6 +31,7 @@ class User extends Authenticatable
      * $this->attributes['balance'] - int - contains the user balance
      * $this->attributes['created_at'] - timestamp - contains the user creation date
      * $this->attributes['updated_at'] - timestamp - contains the user update date
+     * $this->orders-Order[]-contains the associated orders
      */
     protected $fillable = [
         'name',
@@ -136,5 +137,20 @@ class User extends Authenticatable
     public function setUpdatedAt($updatedAt)
     {
         $this->attributes['updated_at'] = $updatedAt;
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+
+    public function setOrders($orders)
+    {
+        $this->oreders=$orders;
     }
 }

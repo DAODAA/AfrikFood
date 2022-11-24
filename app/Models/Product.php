@@ -17,6 +17,7 @@ class Product extends Model
      * $this->attributes['price']-integer- contains the product price
      * $this->attributes['created_at']-timestamp-contains the product date of creation
      * $this->attributes['updated_at]- timestamp- contains the product date of update
+     * $this->items-Item contains associated items
      */
 
     public static function validate($request)
@@ -105,5 +106,20 @@ class Product extends Model
     public function setUpdatedAt($updatedAt)
     {
         $this->attributes['updated_at'] = $updatedAt;
+    }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function getItems()
+    {
+        return $this->items();
+    }
+
+    public function setItems($items)
+    {
+        $this->items=$items;
     }
 }

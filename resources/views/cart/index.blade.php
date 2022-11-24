@@ -25,14 +25,14 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="row">
+            <div class="row mt-2">
                 <div class="text-end">
-                    <a href="" class="btn btn-outline-secondary mb-2">
-                        <b>Total to pay:</b>{{ $viewData['total'] }} FCFA
-                    </a>
-                    <a href="" class="btn bg-primary text-white my-2">Purchase</a>
+                    <a class="btn btn-outline-secondary mb-2"><b>Total to pay:</b> {{ $viewData['total'] }} FCFA</a>
+                    <a class="btn bg-primary text-white mb-2">Purchase</a>
                     <a href="{{ route('cartDelete') }}">
-                        <button class="btn bg-danger mb-2">Remove all products from Cart</button>
+                        <button class="btn btn-danger mb-2">
+                            Remove all products from Cart
+                        </button>
                     </a>
                 </div>
             </div>
