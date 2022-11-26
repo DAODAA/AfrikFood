@@ -151,6 +151,6 @@ class User extends Authenticatable
 
     public function setOrders($orders)
     {
-        $this->oreders=$orders;
+        $this->orders=$orders;
     }
 }

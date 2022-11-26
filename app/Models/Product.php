@@ -51,7 +51,7 @@ class Product extends Model
     public function getName()
     {
         // return strtoupper($this->attributes['name']);
-        return ($this->attributes['name']);
+        return $this->attributes['name'];
     }
 
     public function setName($name)
@@ -115,7 +115,7 @@ class Product extends Model
 
     public function getItems()
     {
-        return $this->items();
+        return $this->items;
     }
 
     public function setItems($items)

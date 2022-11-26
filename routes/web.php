@@ -40,3 +40,8 @@ Auth::routes();
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cartHome');
 Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name('cartDelete');
 Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cartAdd');
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cartPurchase');
+});

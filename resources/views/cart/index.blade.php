@@ -28,12 +28,14 @@
             <div class="row mt-2">
                 <div class="text-end">
                     <a class="btn btn-outline-secondary mb-2"><b>Total to pay:</b> {{ $viewData['total'] }} FCFA</a>
-                    <a class="btn bg-primary text-white mb-2">Purchase</a>
-                    <a href="{{ route('cartDelete') }}">
-                        <button class="btn btn-danger mb-2">
-                            Remove all products from Cart
-                        </button>
-                    </a>
+                    @if (count($viewData['products']) > 0)
+                        <a href="{{ route('cartPurchase') }}" class="btn btn-primary text-white mb-2">Purchase</a>
+                        <a href="{{ route('cartDelete') }}">
+                            <button class="btn btn-danger mb-2">
+                                Remove all products from Cart
+                            </button>
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
