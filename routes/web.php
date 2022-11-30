@@ -18,22 +18,21 @@ use App\Http\Controllers\ProductConroller;
 
 Route::get('/', [HomeController::class, 'index'])->name('homePage');
 
-Route::get('about', 'App\Http\Controllers\HomeController@about')->name('aboutPage');
-Route::get('products', [ProductConroller::class, 'index'])->name('productPage');
-Route::get('products/{id}', [ProductConroller::class, 'show'])->name('productShow');
+Route::get('/about', 'App\Http\Controllers\HomeController@about')->name('aboutPage');
+Route::get('/products', [ProductConroller::class, 'index'])->name('productPage');
+Route::get('/products/{id}', [ProductConroller::class, 'show'])->name('productShow');
 
-Route::middleware('admin')->group(function () {
-    Route::get('admin', 'App\Http\Controllers\Admin\AdminController@index')->name('adminHomePage');
-    Route::get('admin/products', 'App\Http\Controllers\Admin\AdminProductController@index')->name('adminProductPage');
+Route::middleware('/admin')->group(function () {
+    Route::get('/admin', 'App\Http\Controllers\Admin\AdminController@index')->name('adminHomePage');
+    Route::get('/admin/products', 'App\Http\Controllers\Admin\AdminProductController@index')->name('adminProductPage');
 
     Route::post('/admin/products/store', 'App\Http\Controllers\Admin\AdminProductController@store')->name('adminProductStore');
 
 
-    Route::delete('/admin/products/{id}/delete', 'App\Http\Controllers\Admin\AdminProductController@delete')
-    ->name('adminProductDelete');
+    Route::delete('/admin/products/{id}/delete', 'App\Http\Controllers\Admin\AdminProductController@delete')->name('adminProductDelete');
 
-    Route::get('admin/products/{id}/edit', 'App\Http\Controllers\Admin\AdminProductController@edit')->name('adminProductEdit');
-    Route::put('admin/products/{id}/update', 'App\Http\Controllers\Admin\AdminProductController@update')->name('adminProductUpdate');
+    Route::get('/admin/products/{id}/edit', 'App\Http\Controllers\Admin\AdminProductController@edit')->name('adminProductEdit');
+    Route::put('/admin/products/{id}/update', 'App\Http\Controllers\Admin\AdminProductController@update')->name('adminProductUpdate');
 });
 Auth::routes();
 
@@ -43,5 +42,6 @@ Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cartPurchase');
+    Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cartPurchase');
+    Route::get('/my-account/orders', 'App\Http\Controllers\MyAccountController@orders')->name('myAccountOrders');
 });
